@@ -20,7 +20,16 @@ public class MainPage extends BasePage {
     RemoteWebElement animalsTab;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Cartoon\")")
-    RemoteWebElement cartoonTab;    
+    RemoteWebElement cartoonTab; 
+    
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Rage\")")
+    RemoteWebElement rageTab;
+    
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Other\")")
+    RemoteWebElement otherTab;
+    
+    @FindBy(id = "io.github.gsantner.memetastic:id/item__square_image__image")
+    RemoteWebElement image;
     
     
     public MainPage(AndroidDriver d) {
@@ -37,6 +46,18 @@ public class MainPage extends BasePage {
 
     public void selectTabCartoon() {
         cartoonTab.click();
+    }
+    
+    public void selectTabRage() {
+        rageTab.click();
+    }
+    
+    public void selectTabOther() {
+        otherTab.click();
+    }
+    public CreatePage selectImage(){
+        image.click();
+        return new CreatePage(d);
     }
 
     public MenuPage openMenu() {

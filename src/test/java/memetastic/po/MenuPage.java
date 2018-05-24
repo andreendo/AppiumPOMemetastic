@@ -16,6 +16,9 @@ public class MenuPage extends BasePage {
     @FindBy(xpath = "//*[@text='Favs']")
     RemoteWebElement favsOption;
     
+    @FindBy(xpath = "//*[@text='Saved']")
+    RemoteWebElement savedOption;
+    
     public MenuPage(AndroidDriver d) {
         super(d);
     }
@@ -29,5 +32,9 @@ public class MenuPage extends BasePage {
     public FavoritesPage favorites() {
         favsOption.click();
         return new FavoritesPage(d);
+    }
+    public SavedPage save() {
+        savedOption.click();
+        return new SavedPage(d);
     }
 }
