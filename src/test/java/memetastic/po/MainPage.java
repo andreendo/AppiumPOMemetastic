@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
  * @author andreendo
  */
 public class MainPage extends BasePage {
-     @FindBy(id = "Open navigation drawer")
+    @FindBy(id = "Open navigation drawer")
     RemoteWebElement menu;
     
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Human\")")
@@ -20,7 +20,12 @@ public class MainPage extends BasePage {
     RemoteWebElement animalsTab;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Cartoon\")")
-    RemoteWebElement cartoonTab;    
+    RemoteWebElement cartoonTab; 
+    
+    @FindBy(id = "io.github.gsantner.memetastic:id/item__square_image__image")
+    RemoteWebElement firstImage;
+    
+    
     
     
     public MainPage(AndroidDriver d) {
@@ -42,6 +47,11 @@ public class MainPage extends BasePage {
     public MenuPage openMenu() {
         menu.click();
         return new MenuPage(d);
+    }
+    
+    public EditImagePage selectFirstImage(){
+        firstImage.click();
+        return new EditImagePage(d);
     }
     
 }
