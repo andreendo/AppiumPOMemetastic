@@ -20,6 +20,9 @@ public class EditImagePage extends BasePage {
     
     @FindBy(id = "android:id/alertTitle")
     RemoteWebElement alerta;
+    
+    @FindBy(id = "android:id/button1")
+    RemoteWebElement okSaveButton;
 
     public EditImagePage(AndroidDriver d) {
         super(d);
@@ -40,5 +43,9 @@ public class EditImagePage extends BasePage {
     
     public String getAlert(){
         return alerta.getText();
+    }
+
+    public void clickSaveOk() {
+        okSaveButton.click();
     }
 }

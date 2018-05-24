@@ -17,8 +17,13 @@ public class OpenPage extends BasePage {
     }
 
     public MainPage pressOK() {
-        okButton.click();
-        
+        try{
+            while(okButton != null){
+             okButton.click();
+            }
+        }catch(Exception e){
+            
+        }
         return new MainPage(d);
     }
 }
