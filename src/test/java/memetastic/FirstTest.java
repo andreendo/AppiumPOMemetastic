@@ -10,7 +10,6 @@ import memetastic.po.EditImagePage;
 import memetastic.po.FavoritesPage;
 import memetastic.po.MainPage;
 import memetastic.po.OpenPage;
-import memetastic.po.SavedPages;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;

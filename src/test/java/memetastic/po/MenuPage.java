@@ -34,9 +34,5 @@ public class MenuPage extends BasePage {
         favsOption.click();
         return new FavoritesPage(d);
     }
-    
-    public SavedPages saved(){
-        savedOption.click();
-        return new SavedPages(d);
-    }
+  
 }
