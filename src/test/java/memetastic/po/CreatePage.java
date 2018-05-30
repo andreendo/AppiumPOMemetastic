@@ -16,11 +16,15 @@ import org.openqa.selenium.support.FindBy;
  */
 public class CreatePage extends BasePage {
     
-    @FindBy(id = "io.github.gsantner.memetastic:id/action_picture_from_gallery")
+    @FindBy(id = "io.github.gsantner.memetastic:id/action_save")
     RemoteWebElement savememe;
     
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"YES\")")
     RemoteWebElement yesButton;
+    
+    @FindBy(id = "android:id/alertTitle")
+    RemoteWebElement alert;
+    
     
     public CreatePage(AndroidDriver d) {
         super(d);
@@ -33,7 +37,11 @@ public class CreatePage extends BasePage {
     public void confirmSave(){
         yesButton.click();
     }
-
+    
+    public String memeSaved(){ 
+       return alert.getText();
+    }
+            
     
     
     

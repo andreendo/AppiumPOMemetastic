@@ -58,7 +58,7 @@ public class FirstTest {
 //        FavoritesPage favoritesPage = menuPage.favorites();
 //        assertEquals("Favs", favoritesPage.getTitle());
 //    }
-    
+//    
 //    @Test
 //    public void testSavedPage() throws Exception {
 //        OpenPage openPage = new OpenPage(d);
@@ -71,30 +71,26 @@ public class FirstTest {
 //        assertEquals("Saved", savedPage.getTitle());
 // 
 //    }
-    @Test
-    public void testSaveMeme() throws Exception {
-        OpenPage openPage = new OpenPage(d);
-        MainPage mainPage = openPage.pressOK();
-        mainPage = openPage.pressOK();
-        mainPage.selectTabAnimals();
-        CreatePage createPage = mainPage.selectImage();
-        createPage.saveMeme();
-        createPage.confirmSave();
-        MenuPage menuPage = mainPage.openMenu();
-        SavedPage savedPage = menuPage.save();
-        assertEquals("Saved", savedPage.getTitle());
- 
-    }
 //    @Test
-//    public void testDeleteMeme() throws Exception {
+//    public void testSaveMeme() throws Exception {
 //        OpenPage openPage = new OpenPage(d);
 //        MainPage mainPage = openPage.pressOK();
 //        mainPage = openPage.pressOK();
-//        
-//        MenuPage menuPage = mainPage.openMenu();
-//        SavedPage savedPage = menuPage.save();
-//        assertEquals("Saved", savedPage.getTitle());
+//        mainPage.selectTabAnimals();
+//        CreatePage createPage = mainPage.selectImage();
+//        createPage.saveMeme();
+//        assertEquals("Successfully saved!",createPage.memeSaved());
 // 
 //    }
-//    
+    @Test
+    public void testDeleteMeme() throws Exception {
+        OpenPage openPage = new OpenPage(d);
+        MainPage mainPage = openPage.pressOK();
+        mainPage = openPage.pressOK();
+        MenuPage menuPage = mainPage.openMenu();
+        SavedPage savedPage = menuPage.save();
+        savedPage.deleteAll();
+        assertTrue(savedPage.imagesNotExist());
+    }
+    
 }
