@@ -18,6 +18,7 @@ public class OpenPage extends BasePage {
 
     public MainPage pressOK() {
         okButton.click();
+        okButton.click();
         
         return new MainPage(d);
     }
