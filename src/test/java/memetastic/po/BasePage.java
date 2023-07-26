@@ -2,7 +2,8 @@ package memetastic.po;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import java.util.concurrent.TimeUnit;
+
+import java.time.Duration;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -14,6 +15,6 @@ public class BasePage {
     
     public BasePage(AndroidDriver d) {
         this.d = d;
-        PageFactory.initElements(new AppiumFieldDecorator(d, 15, TimeUnit.SECONDS), this);
+        PageFactory.initElements(new AppiumFieldDecorator(d, Duration.ofSeconds(15)), this);
     }
 }

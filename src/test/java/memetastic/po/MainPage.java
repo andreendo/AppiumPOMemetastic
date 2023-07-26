@@ -10,7 +10,8 @@ import org.openqa.selenium.support.FindBy;
  * @author andreendo
  */
 public class MainPage extends BasePage {
-     @FindBy(id = "Open navigation drawer")
+
+	@FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Open navigation drawer\"]") 
     RemoteWebElement menu;
     
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Human\")")

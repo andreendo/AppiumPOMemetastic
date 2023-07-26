@@ -2,10 +2,13 @@ package memetastic;
 
 import memetastic.po.MenuPage;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.MobileCapabilityType;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+
 import memetastic.po.FavoritesPage;
 import memetastic.po.MainPage;
 import memetastic.po.OpenPage;
@@ -21,19 +24,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  */
 public class FirstTest {
 
-    private static String APKFILELOCATION = "./res/memetastic_44.apk";
+    private static String APKFILELOCATION = "/home/andre/git/AppiumPOMemetastic/res/memetastic_44.apk";
     protected AndroidDriver d;
 
     @Before
     public void before() throws MalformedURLException {
-        File apkFile = new File(APKFILELOCATION);
-        
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus4-22");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.APP, apkFile.getAbsolutePath());
+        UiAutomator2Options options = new UiAutomator2Options()
+				.setPlatformName("Android")
+				.setAutoGrantPermissions(true)
+				.setApp(APKFILELOCATION);
 
-        d = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		d = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+		d.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
     @After
